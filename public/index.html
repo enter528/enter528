@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF在线预览与水印系统</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-pdf"></i> PDF在线预览与水印系统</h1>
+            <p>上传PDF文件，在线预览并添加自定义水印</p>
+        </header>
+
+        <main>
+            <!-- 文件上传区域 -->
+            <section class="upload-section">
+                <h2><i class="fas fa-upload"></i> 上传PDF文件</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>拖拽PDF文件到此处或点击选择文件</p>
+                        <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+                        <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                            选择文件
+                        </button>
+                    </div>
+                </div>
+                <div class="upload-progress" id="uploadProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">0%</span>
+                </div>
+            </section>
+
+            <!-- 文件列表 -->
+            <section class="files-section">
+                <h2><i class="fas fa-list"></i> PDF文件列表</h2>
+                <div class="files-container" id="filesContainer">
+                    <p class="no-files">暂无上传的PDF文件</p>
+                </div>
+            </section>
+
+            <!-- PDF预览区域 -->
+            <section class="preview-section" id="previewSection" style="display: none;">
+                <h2><i class="fas fa-eye"></i> PDF预览</h2>
+                <div class="preview-controls">
+                    <button class="btn btn-secondary" id="prevPage">
+                        <i class="fas fa-chevron-left"></i> 上一页
+                    </button>
+                    <span class="page-info" id="pageInfo">第 1 页，共 1 页</span>
+                    <button class="btn btn-secondary" id="nextPage">
+                        下一页 <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="zoom-controls">
+                        <button class="btn btn-secondary" id="zoomOut">
+                            <i class="fas fa-search-minus"></i>
+                        </button>
+                        <span class="zoom-info" id="zoomInfo">100%</span>
+                        <button class="btn btn-secondary" id="zoomIn">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="pdf-viewer">
+                    <canvas id="pdfCanvas"></canvas>
+                </div>
+            </section>
+
+            <!-- 水印设置 -->
+            <section class="watermark-section" id="watermarkSection" style="display: none;">
+                <h2><i class="fas fa-tint"></i> 添加水印</h2>
+                <div class="watermark-form">
+                    <div class="form-group">
+                        <label for="watermarkText">水印文本：</label>
+                        <input type="text" id="watermarkText" placeholder="输入水印文本" value="机密文档">
+                    </div>
+                    <div class="form-group">
+                        <label for="watermarkPosition">水印位置：</label>
+                        <select id="watermarkPosition">
+                            <option value="center">居中</option>
+                            <option value="top-left">左上角</option>
+                            <option value="top-right">右上角</option>
+                            <option value="bottom-left">左下角</option>
+                            <option value="bottom-right">右下角</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="watermarkOpacity">透明度：</label>
+                        <input type="range" id="watermarkOpacity" min="0.1" max="1" step="0.1" value="0.3">
+                        <span class="opacity-value" id="opacityValue">30%</span>
+                    </div>
+                    <button class="btn btn-success" id="addWatermarkBtn">
+                        <i class="fas fa-plus"></i> 添加水印
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- 消息提示 -->
+        <div class="message" id="message"></div>
+
+        <!-- 加载指示器 -->
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>处理中...</p>
+        </div>
+    </div>
+
+    <!-- 引入PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

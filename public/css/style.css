@@ -1,0 +1,463 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    color: #4a5568;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+header h1 i {
+    color: #e53e3e;
+    margin-right: 15px;
+}
+
+header p {
+    color: #718096;
+    font-size: 1.1rem;
+}
+
+/* 主要内容区域 */
+main {
+    display: grid;
+    gap: 30px;
+}
+
+section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+section h2 {
+    color: #2d3748;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+section h2 i {
+    color: #4299e1;
+}
+
+/* 上传区域样式 */
+.upload-area {
+    border: 3px dashed #cbd5e0;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: #f7fafc;
+}
+
+.upload-area:hover {
+    border-color: #4299e1;
+    background: #ebf8ff;
+    transform: translateY(-2px);
+}
+
+.upload-area.dragover {
+    border-color: #3182ce;
+    background: #bee3f8;
+}
+
+.upload-content i {
+    font-size: 3rem;
+    color: #4299e1;
+    margin-bottom: 15px;
+}
+
+.upload-content p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin-bottom: 20px;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #3182ce, #2c5282);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(66, 153, 225, 0.4);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #4a5568;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e0;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #38a169, #2f855a);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #f56565, #e53e3e);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #e53e3e, #c53030);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(245, 101, 101, 0.4);
+}
+
+/* 进度条样式 */
+.upload-progress {
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4299e1, #3182ce);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+/* 文件列表样式 */
+.files-container {
+    display: grid;
+    gap: 15px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #f7fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.file-item:hover {
+    background: #ebf8ff;
+    border-color: #4299e1;
+    transform: translateY(-1px);
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.file-icon {
+    font-size: 2rem;
+    color: #e53e3e;
+}
+
+.file-details h3 {
+    color: #2d3748;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.file-details p {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+.file-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.no-files {
+    text-align: center;
+    color: #718096;
+    font-style: italic;
+    padding: 40px;
+}
+
+/* PDF预览样式 */
+.preview-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.page-info, .zoom-info {
+    font-weight: 600;
+    color: #4a5568;
+    padding: 8px 15px;
+    background: #f7fafc;
+    border-radius: 6px;
+}
+
+.zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pdf-viewer {
+    text-align: center;
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    overflow: auto;
+    max-height: 600px;
+}
+
+#pdfCanvas {
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+}
+
+/* 水印表单样式 */
+.watermark-form {
+    display: grid;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.form-group input[type="range"] {
+    padding: 0;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.opacity-value {
+    font-weight: 600;
+    color: #4299e1;
+    text-align: center;
+}
+
+/* 消息提示样式 */
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    z-index: 1000;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    max-width: 400px;
+}
+
+.message.show {
+    transform: translateX(0);
+}
+
+.message.success {
+    background: #c6f6d5;
+    color: #22543d;
+    border-left: 4px solid #38a169;
+}
+
+.message.error {
+    background: #fed7d7;
+    color: #742a2a;
+    border-left: 4px solid #e53e3e;
+}
+
+.message.info {
+    background: #bee3f8;
+    color: #2a4365;
+    border-left: 4px solid #4299e1;
+}
+
+/* 加载指示器 */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #e2e8f0;
+    border-top: 5px solid #4299e1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .preview-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .file-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .file-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .message {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .upload-area {
+        padding: 20px;
+    }
+    
+    .upload-content i {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
